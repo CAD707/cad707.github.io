@@ -268,7 +268,7 @@ function CustomAlert(){
 }
 let customAlert = new CustomAlert();
 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-if (isMobile) {  
+if (screen.availHeight > screen.availWidth) {  
 customAlert.alert('Please rotate device.')
 }  
 const html = document.documentElement;
