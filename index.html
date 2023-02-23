@@ -235,9 +235,7 @@
 
 </body>
 <script>
-const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-if (isMobile) {
-  function CustomAlert(){
+function CustomAlert(){
   this.alert = function(message,title){
     document.body.innerHTML = document.body.innerHTML + '<div id="dialogoverlay"></div><div id="dialogbox" class="slit-in-vertical"><div><div id="dialogboxhead"></div><div id="dialogboxbody"></div><div id="dialogboxfoot"></div></div></div>';
 
@@ -263,13 +261,14 @@ if (isMobile) {
     document.getElementById('dialogboxfoot').innerHTML = '<button class="pure-material-button-contained active" onclick="customAlert.ok()">OK</button>';
   }
   
-//   this.ok = function(){
-//     document.getElementById('dialogbox').style.display = "none";
-//     document.getElementById('dialogoverlay').style.display = "none";
-//   }
+  this.ok = function(){
+    document.getElementById('dialogbox').style.display = "none";
+    document.getElementById('dialogoverlay').style.display = "none";
+  }
 }
-
 let customAlert = new CustomAlert();
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+if (isMobile) {  
 customAlert.alert('Please rotate device.')
 }  
 const html = document.documentElement;
